@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12W</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+            integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            let box = $('#box');
+
+            box.css({width: 100, height: 100, background: 'orange'})
+                .on({
+                    click: () => box.css('background', 'red'),
+                    mouseenter: () => box.css('background', 'blue'),
+                    mouseleave: () => box.css('background', 'orange'),
+                })
+
+        })
+    </script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>
