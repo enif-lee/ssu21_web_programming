@@ -25,26 +25,27 @@
 
                 const list = document.createElement('ul');
                 weeks.append(htmlToElement(`<h2>week ${i}</h2>`))
-                weeks.append(list)
+                weeks.append(list);
+                (async () => {
+                    for (let j = 1; j < 100; j++) {
+                        const format = j.toLocaleString('en-US', {
+                            minimumIntegerDigits: 2,
+                            useGrouping: false
+                        })
 
-                for (let j = 1; j < 100; j++) {
-                    const format = j.toLocaleString('en-US', {
-                        minimumIntegerDigits: 2,
-                        useGrouping: false
-                    })
+                        let link = `${i}w/e${format}.html`;
+                        const example = await fetch(link);
+                        if (!example.ok)
+                            break;
 
-                    let link = `${i}w/e${format}.html`;
-                    const example = await fetch(link);
-                    if (!example.ok)
-                        break;
-
-                    let li = document.createElement('li');
-                    let linkTag = document.createElement('a');
-                    linkTag.href = link
-                    linkTag.innerText = link
-                    li.append(linkTag)
-                    list.append(li)
-                }
+                        let li = document.createElement('li');
+                        let linkTag = document.createElement('a');
+                        linkTag.href = link
+                        linkTag.innerText = link
+                        li.append(linkTag)
+                        list.append(li)
+                    }
+                })().then(() => console.log('done'))
             }
         }
     </script>
