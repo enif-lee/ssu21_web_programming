@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function () {
+            function colorToTag([name, color]) {
+                return `<td>${name}</td><td>${color}</td><td style="background: ${color}"></td>`
+            }
+            document.querySelector('table').innerHTML += [
+                [['Brown', '#A52A2A'], ['DeepSkyBlue', '#00BFFF']],
+                [['Blueviolet', '#8A2BE2'], ['Gold', '#FFD700']],
+                [['DarkOrange', '#FF8C00'], ['OliveDrab', '#6B8E23']],
+            ]
+                .map((colors) => `<tr>${colors.map(colorToTag).join("")}</tr>`)
+                .join("");
+        }
+    </script>
+    <style>
+        th:nth-child(3n) {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1>색 이름과 코드</h1>
+<hr>
+<table border="1" cellpadding="2">
+    <tr>
+        <th>이름</th>
+        <th>코드</th>
+        <th>색</th>
+        <th>이름</th>
+        <th>코드</th>
+        <th>색</th>
+    </tr>
+</table>
+</body>
+</html>

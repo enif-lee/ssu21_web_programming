@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload = function () {
+            while (true) {
+                const password = prompt('암호를 대라');
+                if (password === 'web')
+                    break;
+            }
+
+            setInterval(() => {
+                const date = new Date();
+                document.body.style.backgroundColor = date.getHours() < 12
+                    ? 'lightskyblue'
+                    : 'orange'
+                document.body.innerText = date.toString()
+            }, 1000)
+
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
